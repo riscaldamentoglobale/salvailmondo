@@ -42,32 +42,32 @@ p{font-size:1.35rem;line-height:1.9;opacity:.9}
 .fade.show{opacity:1;transform:translateY(0)}
 
 .chart-box{max-width:900px;margin-top:40px}
-.impact{background:black;text-align:center}
-
-/* MINI MAPPA */
-#miniMap{position:relative;width:100%;max-width:900px;height:400px;margin-top:50px;background:#020305;border-radius:20px;overflow:hidden}
-.country{position:absolute;border-radius:50%;opacity:0.7}
+.impact{background:black;text-align:center;padding:80px 12%}
 
 /* NUMERI ESPLOSIVI */
 .number-explode{
   font-size:4rem;
   font-weight:700;
   text-align:center;
-  margin:60px 0;
+  margin:60px 0 10px 0;
   color:#ff3b3b;
   transform:scale(0);
   opacity:0;
   transition:all 0.6s ease-out;
 }
+.number-explode.show{
+  text-shadow: 0 0 20px #ff3b3b, 0 0 40px #ff3b3b;
+}
 
 /* ARTICO ITALIA */
 .compare-section{display:flex;flex-wrap:wrap;gap:40px;justify-content:center;margin-top:60px}
-.compare-box{flex:1;min-width:300px;background:rgba(255,255,255,0.06);backdrop-filter:blur(12px);border-radius:20px;padding:30px;text-align:center}
+.compare-box{flex:1;min-width:300px;background:rgba(255,255,255,0.06);backdrop-filter:blur(12px);border-radius:20px;padding:30px;text-align:center;transition:all 0.4s ease}
 .compare-box h3{margin-bottom:20px;color:#ff8f3b}
 .compare-box p{font-size:1.3rem;opacity:0.9}
+.compare-box:hover{transform:translateY(-10px);box-shadow:0 0 30px rgba(255,140,59,0.6);}
 
 /* SLIDE PROF */
-#teacherSlide{display:none;background:#020202;border-top:3px solid #ff3b3b}
+#teacherSlide{display:none;background:#020202;border-top:3px solid #ff3b3b;padding:50px;font-size:1.2rem}
 
 /* CURSOR */
 #cursorGlow{
@@ -83,7 +83,7 @@ filter:blur(14px);transform:translate(-50%,-50%);z-index:999
 <div id="accentLine"></div>
 <div id="cursorGlow"></div>
 
-<!-- INTRO -->
+<!-- HERO -->
 <section class="hero">
   <div class="hero-content">
     <h1>Non è il futuro.</h1>
@@ -97,9 +97,12 @@ filter:blur(14px);transform:translate(-50%,-50%);z-index:999
   <div class="fade glass">
     <h2>Un fenomeno geografico globale</h2>
     <p>
-      Il riscaldamento globale modifica climi, territori ed ecosistemi.
-      La geografia studia proprio questi cambiamenti
-      e il loro impatto sulle società umane.
+      Il riscaldamento globale modifica climi, territori ed ecosistemi.  
+      La geografia studia proprio questi cambiamenti e il loro impatto sulle società umane.
+    </p>
+    <p>
+      Ogni anno vediamo aumentare eventi estremi, scioglimento dei ghiacci e innalzamento dei mari.  
+      Questi fenomeni hanno conseguenze dirette sul nostro territorio e sulla vita quotidiana.
     </p>
   </div>
 </section>
@@ -109,6 +112,10 @@ filter:blur(14px);transform:translate(-50%,-50%);z-index:999
   <div class="fade glass">
     <h2>Temperatura media globale</h2>
     <div class="chart-box"><canvas id="chartTemp"></canvas></div>
+    <p>
+      La temperatura globale è in costante aumento, con un incremento medio di 1.2°C dal 1900.  
+      Ogni frazione di grado in più ha effetti significativi sugli ecosistemi.
+    </p>
   </div>
 </section>
 
@@ -116,6 +123,10 @@ filter:blur(14px);transform:translate(-50%,-50%);z-index:999
   <div class="fade glass">
     <h2>Concentrazione di CO₂</h2>
     <div class="chart-box"><canvas id="chartCO2"></canvas></div>
+    <p>
+      La CO₂ atmosferica ha raggiunto 415 ppm, il valore più alto degli ultimi 800.000 anni.  
+      Questo gas intrappola il calore e accelera il riscaldamento globale.
+    </p>
   </div>
 </section>
 
@@ -123,6 +134,10 @@ filter:blur(14px);transform:translate(-50%,-50%);z-index:999
   <div class="fade glass">
     <h2>Innalzamento del livello dei mari</h2>
     <div class="chart-box"><canvas id="chartSea"></canvas></div>
+    <p>
+      Il livello medio del mare è aumentato di circa 20 cm dal 1900.  
+      Coste e città basse sono particolarmente vulnerabili.
+    </p>
   </div>
 </section>
 
@@ -130,26 +145,32 @@ filter:blur(14px);transform:translate(-50%,-50%);z-index:999
   <div class="fade glass">
     <h2>Riduzione dei ghiacci artici</h2>
     <div class="chart-box"><canvas id="chartIce"></canvas></div>
+    <p>
+      Il ghiaccio artico è diminuito di quasi il 45% negli ultimi 40 anni.  
+      Questo cambia gli habitat, le correnti oceaniche e il clima globale.
+    </p>
   </div>
 </section>
 
-<!-- NUMERI ESPLOSIVI -->
+<!-- NUMERI ESPLOSIVI CON SPIEGAZIONI -->
 <section>
-  <div class="fade number-explode" id="co2Number">415 ppm</div>
+  <div class="fade number-explode" id="co2Number">CO₂: 415 ppm</div>
+  <p class="fade" style="text-align:center;opacity:0.8;margin-top:10px;">
+    La concentrazione di CO₂ nell'atmosfera ha raggiunto livelli record.  
+    Negli ultimi 60 anni è aumentata più velocemente che in qualsiasi periodo della storia umana.
+  </p>
+
   <div class="fade number-explode" id="tempNumber">+1.2°C dal 1900</div>
-</section>
+  <p class="fade" style="text-align:center;opacity:0.8;margin-top:10px;">
+    La temperatura media globale è aumentata di 1.2°C rispetto ai livelli preindustriali.  
+    Questo causa ondate di calore, scioglimento dei ghiacci e innalzamento dei mari.
+  </p>
 
-<!-- MINI MAPPA -->
-<section>
-  <div class="fade glass">
-    <h2>Zone più colpite dal riscaldamento</h2>
-    <div id="miniMap">
-      <div class="country" style="top:40px;left:300px;width:40px;height:40px;background:#ff3b3b;"></div>
-      <div class="country" style="top:120px;left:600px;width:30px;height:30px;background:#ff8f3b;"></div>
-      <div class="country" style="top:200px;left:450px;width:50px;height:50px;background:#ff3b3b;"></div>
-      <!-- aggiungi altri punti se vuoi -->
-    </div>
-  </div>
+  <div class="fade number-explode" id="extremeNumber">Eventi estremi +30%</div>
+  <p class="fade" style="text-align:center;opacity:0.8;margin-top:10px;">
+    Alluvioni, uragani e siccità sono aumentati del 30% negli ultimi 40 anni.  
+    Gli impatti geografici e sociali sono enormi.
+  </p>
 </section>
 
 <!-- ARTICO ITALIA -->
@@ -183,13 +204,13 @@ filter:blur(14px);transform:translate(-50%,-50%);z-index:999
 <section id="teacherSlide">
   <h2>Nota per la valutazione – Geografia</h2>
   <p>
-    I grafici mostrano come il cambiamento climatico
-    sia un fenomeno misurabile e globale,
-    con effetti diretti sui territori.
+    I grafici mostrano come il cambiamento climatico sia un fenomeno misurabile e globale,  
+    con effetti diretti sui territori.  
+    I dati aiutano a comprendere l'urgenza di interventi sostenibili.
   </p>
 </section>
 
-<footer>Progetto di Geografia • Dati, territorio, futuro</footer>
+<footer style="text-align:center;padding:50px 12%;opacity:0.6;">Progetto di Geografia • Dati, territorio, futuro</footer>
 
 <script>
 /* TYPE */
@@ -240,6 +261,7 @@ Object.keys(charts).forEach(id=>chartObs.observe(document.getElementById(id)));
 const numObs=new IntersectionObserver(entries=>{
   entries.forEach(e=>{
     if(e.isIntersecting){
+      e.target.classList.add('show');
       e.target.style.transform="scale(1)";
       e.target.style.opacity="1";
     }
