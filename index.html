@@ -18,8 +18,19 @@
 
 body {
   background: #03070a;
-  color: #ffffff;
+  color: white;
   overflow-x: hidden;
+}
+
+/* ACCENT LINE */
+#accentLine {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 0%;
+  background: linear-gradient(90deg, #ff3b3b, #ff8f3b);
+  z-index: 9999;
 }
 
 section {
@@ -30,6 +41,7 @@ section {
   justify-content: center;
 }
 
+/* HERO */
 .hero {
   background: url("https://images.unsplash.com/photo-1501785888041-af3ef285b470") center/cover no-repeat;
   position: relative;
@@ -48,9 +60,17 @@ section {
   max-width: 900px;
 }
 
+/* GLASS */
+.glass {
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 22px;
+  padding: 55px;
+}
+
 h1 {
   font-size: 4.8rem;
-  font-weight: 700;
   margin-bottom: 30px;
 }
 
@@ -73,7 +93,6 @@ p {
 .scroll {
   margin-top: 70px;
   opacity: 0.6;
-  font-size: 0.9rem;
 }
 
 .fade {
@@ -92,26 +111,18 @@ p {
   margin-top: 50px;
 }
 
+/* IMPACT */
 .impact {
   background: black;
   text-align: center;
 }
 
-.impact h2 {
-  font-size: 3.6rem;
-}
-
-.impact p {
-  font-size: 1.8rem;
-  margin-top: 40px;
-}
-
+/* FOOTER */
 footer {
   padding: 40px;
   text-align: center;
   background: #010305;
   opacity: 0.6;
-  font-size: 0.85rem;
 }
 
 /* SLIDE PROF */
@@ -120,10 +131,26 @@ footer {
   background: #020202;
   border-top: 3px solid #ff3b3b;
 }
+
+/* CURSOR GLOW */
+#cursorGlow {
+  position: fixed;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  pointer-events: none;
+  background: rgba(255,59,59,0.25);
+  filter: blur(14px);
+  transform: translate(-50%, -50%);
+  z-index: 999;
+}
 </style>
 </head>
 
 <body>
+
+<div id="accentLine"></div>
+<div id="cursorGlow"></div>
 
 <!-- INTRO -->
 <section class="hero">
@@ -136,43 +163,39 @@ footer {
 
 <!-- GEOGRAFIA -->
 <section>
-  <div class="fade">
+  <div class="fade glass">
     <h2>Un fenomeno geografico globale</h2>
     <p>
       Il riscaldamento globale è un fenomeno geografico perché
-      modifica il territorio, i climi, gli ecosistemi e il modo
-      in cui l’uomo vive lo spazio terrestre.
-      Non colpisce ovunque allo stesso modo,
-      ma ridisegna il pianeta in modo diseguale.
+      modifica territori, climi ed ecosistemi.
+      Ridisegna il pianeta in modo diseguale,
+      cambiando il rapporto tra uomo e ambiente.
     </p>
   </div>
 </section>
 
-<!-- CLIMI -->
 <section>
-  <div class="fade">
+  <div class="fade glass">
     <h2>I climi stanno cambiando</h2>
     <p>
-      Zone un tempo temperate diventano aride,
-      i ghiacciai si ritirano,
-      il livello dei mari aumenta.
-      Le carte climatiche che studiamo oggi
-      non saranno più valide domani.
+      I ghiacciai si ritirano,
+      i deserti avanzano,
+      il livello dei mari cresce.
+      Le carte geografiche climatiche
+      non sono più statiche.
     </p>
   </div>
 </section>
 
 <!-- GRAFICO -->
 <section>
-  <div class="fade">
-    <h2>La temperatura media globale</h2>
+  <div class="fade glass">
+    <h2>Temperatura media globale</h2>
     <p>
-      La geografia utilizza i dati per comprendere
-      l’evoluzione del pianeta.
-      Questo grafico mostra un aumento rapido e continuo
-      della temperatura media terrestre.
+      I dati climatici mostrano
+      un aumento rapido e continuo
+      della temperatura terrestre.
     </p>
-
     <div class="chart-box">
       <canvas id="climateChart"></canvas>
     </div>
@@ -182,44 +205,41 @@ footer {
 <!-- IMPACT -->
 <section class="impact">
   <h2>La Terra si adatta.</h2>
-  <p>
+  <p style="font-size:1.8rem;margin-top:40px;">
     Le società umane no.<br>
     <strong>Ed è qui il problema.</strong>
   </p>
 </section>
 
-<!-- UOMO E TERRITORIO -->
 <section>
-  <div class="fade">
+  <div class="fade glass">
     <h2>Uomo e territorio</h2>
     <p>
-      Il cambiamento climatico influisce su migrazioni,
-      risorse, agricoltura e città.
-      La geografia studia proprio questo rapporto:
-      l’equilibrio fragile tra l’uomo e l’ambiente.
+      Migrazioni climatiche,
+      crisi delle risorse,
+      città vulnerabili.
+      La geografia studia
+      questo fragile equilibrio.
     </p>
   </div>
 </section>
 
-<!-- SLIDE INVISIBILE PROF -->
+<!-- SLIDE PROF -->
 <section id="teacherSlide">
-  <h2>Nota per la valutazione (Geografia)</h2>
+  <h2>Nota per la valutazione – Geografia</h2>
   <p>
-    Questo progetto affronta il riscaldamento globale
+    Il progetto analizza il riscaldamento globale
     come fenomeno geografico globale,
-    analizzando il rapporto tra clima, territorio
-    e attività umane.
+    mettendo in relazione clima,
+    territorio e attività umane.
   </p>
   <p>
-    La scelta del sito web sostituisce la presentazione
-    tradizionale per rappresentare un fenomeno continuo,
-    dinamico e in costante evoluzione.
+    La forma digitale rappresenta
+    un fenomeno continuo e dinamico.
   </p>
   <p>
-    Competenze utilizzate:
-    analisi territoriale,
+    Competenze: analisi territoriale,
     interpretazione di dati climatici,
-    relazione uomo-ambiente,
     comunicazione geografica digitale.
   </p>
 </section>
@@ -232,14 +252,11 @@ footer {
 /* TYPEWRITER */
 const text = "È il presente che stiamo ignorando.";
 let i = 0;
-const speed = 45;
-const target = document.getElementById("typeText");
-
 function typeWriter() {
   if (i < text.length) {
-    target.innerHTML += text.charAt(i);
+    document.getElementById("typeText").innerHTML += text.charAt(i);
     i++;
-    setTimeout(typeWriter, speed);
+    setTimeout(typeWriter, 45);
   }
 }
 window.onload = typeWriter;
@@ -248,14 +265,18 @@ window.onload = typeWriter;
 window.addEventListener("scroll", () => {
   document.querySelector(".hero").style.backgroundPositionY =
     window.scrollY * 0.4 + "px";
+
+  const progress =
+    (window.scrollY /
+      (document.body.scrollHeight - window.innerHeight)) *
+    100;
+  document.getElementById("accentLine").style.width = progress + "%";
 });
 
 /* FADE */
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("show");
-    }
+    if (entry.isIntersecting) entry.target.classList.add("show");
   });
 });
 document.querySelectorAll(".fade").forEach(el => observer.observe(el));
@@ -269,10 +290,10 @@ const chartObserver = new IntersectionObserver(entries => {
       new Chart(document.getElementById('climateChart'), {
         type: 'line',
         data: {
-          labels: ['1900', '1950', '1980', '2000', '2020'],
+          labels: ['1900','1950','1980','2000','2020'],
           datasets: [{
-            label: 'Temperatura Media Globale (°C)',
-            data: [13.7, 13.8, 14.1, 14.4, 14.9],
+            label: 'Temperatura Media (°C)',
+            data: [13.7,13.8,14.1,14.4,14.9],
             borderColor: '#ff3b3b',
             backgroundColor: 'rgba(255,59,59,0.15)',
             tension: 0.45,
@@ -281,12 +302,10 @@ const chartObserver = new IntersectionObserver(entries => {
         },
         options: {
           animation: { duration: 4000 },
+          plugins: { legend: { labels: { color: 'white' } } },
           scales: {
             x: { ticks: { color: 'white' } },
             y: { ticks: { color: 'white' } }
-          },
-          plugins: {
-            legend: { labels: { color: 'white' } }
           }
         }
       });
@@ -295,14 +314,20 @@ const chartObserver = new IntersectionObserver(entries => {
 });
 chartObserver.observe(document.getElementById("climateChart"));
 
-/* SLIDE PROF - t */
-document.addEventListener("keydown", (e) => {
+/* SLIDE PROF */
+document.addEventListener("keydown", e => {
   if (e.key === "t") {
     const slide = document.getElementById("teacherSlide");
-    slide.style.display =
-      slide.style.display === "none" ? "block" : "none";
+    slide.style.display = slide.style.display === "none" ? "block" : "none";
     slide.scrollIntoView({ behavior: "smooth" });
   }
+});
+
+/* CURSOR */
+document.addEventListener("mousemove", e => {
+  const g = document.getElementById("cursorGlow");
+  g.style.left = e.clientX + "px";
+  g.style.top = e.clientY + "px";
 });
 </script>
 
