@@ -2,7 +2,7 @@
 <html lang="it">
 <head>
 <meta charset="UTF-8">
-<title>Non è il Futuro</title>
+<title>Salva il Mondo - Riscaldamento Globale</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
@@ -59,9 +59,9 @@ p{font-size:1.35rem;line-height:1.9;opacity:.9}
   text-shadow: 0 0 20px #ff3b3b, 0 0 40px #ff3b3b;
 }
 
-/* ARTICO ITALIA */
+/* ARTICO ITALIA AFRICA */
 .compare-section{display:flex;flex-wrap:wrap;gap:40px;justify-content:center;margin-top:60px}
-.compare-box{flex:1;min-width:300px;background:rgba(255,255,255,0.06);backdrop-filter:blur(12px);border-radius:20px;padding:30px;text-align:center;transition:all 0.4s ease}
+.compare-box{flex:1;min-width:280px;background:rgba(255,255,255,0.06);backdrop-filter:blur(12px);border-radius:20px;padding:30px;text-align:center;transition:all 0.4s ease}
 .compare-box h3{margin-bottom:20px;color:#ff8f3b}
 .compare-box p{font-size:1.3rem;opacity:0.9}
 .compare-box:hover{transform:translateY(-10px);box-shadow:0 0 30px rgba(255,140,59,0.6);}
@@ -86,23 +86,22 @@ filter:blur(14px);transform:translate(-50%,-50%);z-index:999
 <!-- HERO -->
 <section class="hero">
   <div class="hero-content">
-    <h1>Non è il futuro.</h1>
+    <h1>Salva il Mondo</h1>
     <p class="type" id="typeText"></p>
     <div class="scroll">↓ scorri lentamente</div>
   </div>
 </section>
 
-<!-- CONTESTO -->
+<!-- CONTESTO GENERALE -->
 <section>
   <div class="fade glass">
-    <h2>Un fenomeno geografico globale</h2>
+    <h2>Cos'è il riscaldamento globale?</h2>
     <p>
-      Il riscaldamento globale modifica climi, territori ed ecosistemi.  
-      La geografia studia proprio questi cambiamenti e il loro impatto sulle società umane.
+      Il riscaldamento globale è l’aumento della temperatura media terrestre causato dall’aumento di gas serra.  
+      Cambia i climi, modifica i territori e mette a rischio ecosistemi e società.
     </p>
     <p>
-      Ogni anno vediamo aumentare eventi estremi, scioglimento dei ghiacci e innalzamento dei mari.  
-      Questi fenomeni hanno conseguenze dirette sul nostro territorio e sulla vita quotidiana.
+      Eventi estremi, scioglimento dei ghiacci, innalzamento dei mari e migrazioni climatiche sono già realtà visibili oggi.
     </p>
   </div>
 </section>
@@ -113,8 +112,8 @@ filter:blur(14px);transform:translate(-50%,-50%);z-index:999
     <h2>Temperatura media globale</h2>
     <div class="chart-box"><canvas id="chartTemp"></canvas></div>
     <p>
-      La temperatura globale è in costante aumento, con un incremento medio di 1.2°C dal 1900.  
-      Ogni frazione di grado in più ha effetti significativi sugli ecosistemi.
+      Dal 1900 la temperatura media globale è aumentata di circa <strong>1.2°C</strong>.  
+      Questo accelera lo scioglimento dei ghiacci e gli eventi climatici estremi.
     </p>
   </div>
 </section>
@@ -124,8 +123,8 @@ filter:blur(14px);transform:translate(-50%,-50%);z-index:999
     <h2>Concentrazione di CO₂</h2>
     <div class="chart-box"><canvas id="chartCO2"></canvas></div>
     <p>
-      La CO₂ atmosferica ha raggiunto 415 ppm, il valore più alto degli ultimi 800.000 anni.  
-      Questo gas intrappola il calore e accelera il riscaldamento globale.
+      La CO₂ ha raggiunto <strong>415 ppm</strong>, il valore più alto da centinaia di migliaia di anni.  
+      Ogni incremento amplifica l’effetto serra globale.
     </p>
   </div>
 </section>
@@ -135,114 +134,128 @@ filter:blur(14px);transform:translate(-50%,-50%);z-index:999
     <h2>Innalzamento del livello dei mari</h2>
     <div class="chart-box"><canvas id="chartSea"></canvas></div>
     <p>
-      Il livello medio del mare è aumentato di circa 20 cm dal 1900.  
-      Coste e città basse sono particolarmente vulnerabili.
+      Il livello medio dei mari è aumentato di circa 20 cm dal 1900, minacciando coste e città basse.
     </p>
   </div>
 </section>
 
 <section>
   <div class="fade glass">
-    <h2>Riduzione dei ghiacci artici</h2>
+    <h2>Riduzione dei ghiacci</h2>
     <div class="chart-box"><canvas id="chartIce"></canvas></div>
     <p>
-      Il ghiaccio artico è diminuito di quasi il 45% negli ultimi 40 anni.  
-      Questo cambia gli habitat, le correnti oceaniche e il clima globale.
+      Ghiaccio artico: -45% negli ultimi 40 anni.  
+      Ghiaccio antartico: -30% nello stesso periodo.  
+      Questo influenza correnti oceaniche, habitat e clima globale.
     </p>
   </div>
 </section>
 
-<!-- NUMERI ESPLOSIVI CON SPIEGAZIONI -->
+<!-- NUMERI ESPLOSIVI -->
 <section>
   <div class="fade number-explode" id="co2Number">CO₂: 415 ppm</div>
-  <p class="fade" style="text-align:center;opacity:0.8;margin-top:10px;">
-    La concentrazione di CO₂ nell'atmosfera ha raggiunto livelli record.  
-    Negli ultimi 60 anni è aumentata più velocemente che in qualsiasi periodo della storia umana.
+  <p class="fade" style="text-align:center;opacity:0.85;margin-top:10px">
+    La CO₂ atmosferica è al massimo storico. Gli ultimi decenni hanno visto aumenti rapidi mai registrati prima.
   </p>
 
   <div class="fade number-explode" id="tempNumber">+1.2°C dal 1900</div>
-  <p class="fade" style="text-align:center;opacity:0.8;margin-top:10px;">
-    La temperatura media globale è aumentata di 1.2°C rispetto ai livelli preindustriali.  
-    Questo causa ondate di calore, scioglimento dei ghiacci e innalzamento dei mari.
+  <p class="fade" style="text-align:center;opacity:0.85;margin-top:10px">
+    La temperatura media globale è aumentata di 1.2°C. Anche pochi decimi di grado causano impatti enormi.
   </p>
 
   <div class="fade number-explode" id="extremeNumber">Eventi estremi +30%</div>
-  <p class="fade" style="text-align:center;opacity:0.8;margin-top:10px;">
-    Alluvioni, uragani e siccità sono aumentati del 30% negli ultimi 40 anni.  
-    Gli impatti geografici e sociali sono enormi.
+  <p class="fade" style="text-align:center;opacity:0.85;margin-top:10px">
+    Siccità, uragani e alluvioni sono aumentati del 30% negli ultimi 40 anni.
   </p>
 </section>
 
-<!-- ARTICO ITALIA -->
+<!-- ARTICO - ITALIA - AFRICA -->
 <section>
   <div class="fade glass">
-    <h2>Artico vs Italia</h2>
+    <h2>Confronto regioni</h2>
     <div class="compare-section">
       <div class="compare-box">
         <h3>Artico</h3>
-        <p>Ghiaccio marino: -45% negli ultimi 40 anni</p>
+        <p>Ghiaccio marino: -45%</p>
         <p>Temperatura media: +3°C dal 1980</p>
       </div>
       <div class="compare-box">
         <h3>Italia</h3>
-        <p>Temperature estive +2°C dal 1980</p>
+        <p>Temperature estive +2°C</p>
         <p>Eventi estremi più frequenti</p>
+      </div>
+      <div class="compare-box">
+        <h3>Africa (Sahel)</h3>
+        <p>Siccità più frequenti</p>
+        <p>Desertificazione in aumento</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- IMPACT -->
+<!-- IMPATTO SOCIALE -->
 <section class="impact">
-  <h2>La Terra si adatta.</h2>
-  <p style="font-size:1.8rem;margin-top:40px">
-    Le società umane no.<br><strong>Ed è qui il problema.</strong>
+  <h2>Impatto ambientale e sociale</h2>
+  <p style="font-size:1.6rem;margin-top:40px">
+    Deforestazione, perdita di biodiversità e migrazioni climatiche aumentano ogni anno.  
+    I dati mostrano che i cambiamenti climatici influenzano direttamente le nostre vite.
   </p>
+</section>
+
+<!-- AZIONI POSSIBILI -->
+<section>
+  <div class="fade glass">
+    <h2>Cosa possiamo fare</h2>
+    <ul>
+      <li>Usare energie rinnovabili</li>
+      <li>Ridurre sprechi e consumi energetici</li>
+      <li>Riforestazione e tutela degli ecosistemi</li>
+      <li>Educazione e sensibilizzazione</li>
+    </ul>
+  </div>
 </section>
 
 <!-- SLIDE PROF -->
 <section id="teacherSlide">
   <h2>Nota per la valutazione – Geografia</h2>
   <p>
-    I grafici mostrano come il cambiamento climatico sia un fenomeno misurabile e globale,  
-    con effetti diretti sui territori.  
-    I dati aiutano a comprendere l'urgenza di interventi sostenibili.
+    I grafici mostrano come il cambiamento climatico sia misurabile e globale.  
+    Gli impatti sui territori sono diretti e tangibili.  
+    I dati sottolineano l’urgenza di interventi sostenibili.
   </p>
 </section>
 
 <footer style="text-align:center;padding:50px 12%;opacity:0.6;">Progetto di Geografia • Dati, territorio, futuro</footer>
 
 <script>
-/* TYPE */
+/* TYPE EFFECT */
 const text="È il presente che stiamo ignorando.";
 let i=0;
 (function type(){if(i<text.length){typeText.innerHTML+=text[i++];setTimeout(type,45)}})();
 
-/* PARALLASSE + LINE */
+/* PARALLASSE + ACCENT LINE */
 window.addEventListener("scroll",()=>{
   document.querySelector(".hero").style.backgroundPositionY=scrollY*.4+"px";
   accentLine.style.width=(scrollY/(document.body.scrollHeight-innerHeight))*100+"%";
 });
 
-/* FADE */
+/* FADE-IN */
 const obs=new IntersectionObserver(e=>e.forEach(x=>x.isIntersecting&&x.target.classList.add("show")));
 document.querySelectorAll(".fade").forEach(el=>obs.observe(el));
 
-/* CHART CREATOR */
+/* CHARTS */
 function createChart(id,label,data,color){
   new Chart(document.getElementById(id),{
     type:'line',
-    data:{labels:['1900','1950','1980','2000','2020'],
-    datasets:[{label,data,borderColor:color,backgroundColor:color+'33',tension:.45,fill:true}]},
+    data:{labels:['1900','1950','1980','2000','2020'],datasets:[{label,data,borderColor:color,backgroundColor:color+'33',tension:.45,fill:true}]},
     options:{animation:{duration:3500},plugins:{legend:{labels:{color:'white'}}},scales:{x:{ticks:{color:'white'}},y:{ticks:{color:'white'}}}}
   })
 }
 
-/* OBSERVE CHARTS */
 const charts={
   chartTemp:()=>createChart('chartTemp','Temperatura °C',[13.7,13.8,14.1,14.4,14.9],'#ff3b3b'),
   chartCO2:()=>createChart('chartCO2','CO₂ ppm',[296,311,338,369,415],'#3bffb6'),
-  chartSea:()=>createChart('chartSea','Livello marino cm',[0,2,6,10,20],'#3ba9ff'),
+  chartSea:()=>createChart('chartSea','Livello mare cm',[0,2,6,10,20],'#3ba9ff'),
   chartIce:()=>createChart('chartIce','Estensione ghiacci %',[100,92,78,65,55],'#cfdfff')
 };
 
