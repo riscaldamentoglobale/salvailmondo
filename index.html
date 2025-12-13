@@ -9,140 +9,71 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Inter', sans-serif;
-}
-
-body {
-  background: #03070a;
-  color: white;
-  overflow-x: hidden;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif}
+body{background:#03070a;color:white;overflow-x:hidden}
 
 /* ACCENT LINE */
-#accentLine {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 4px;
-  width: 0%;
-  background: linear-gradient(90deg, #ff3b3b, #ff8f3b);
-  z-index: 9999;
-}
+#accentLine{position:fixed;top:0;left:0;height:4px;width:0%;background:linear-gradient(90deg,#ff3b3b,#ff8f3b);z-index:9999}
 
-section {
-  min-height: 100vh;
-  padding: 90px 12%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
+section{min-height:100vh;padding:90px 12%;display:flex;flex-direction:column;justify-content:center}
 
 /* HERO */
-.hero {
-  background: url("https://images.unsplash.com/photo-1501785888041-af3ef285b470") center/cover no-repeat;
-  position: relative;
-}
-
-.hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.85), #03070a);
-}
-
-.hero-content {
-  position: relative;
-  z-index: 2;
-  max-width: 900px;
-}
+.hero{background:url("https://images.unsplash.com/photo-1501785888041-af3ef285b470") center/cover no-repeat;position:relative}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.85),#03070a)}
+.hero-content{position:relative;z-index:2;max-width:900px}
 
 /* GLASS */
-.glass {
-  background: rgba(255,255,255,0.06);
-  backdrop-filter: blur(14px);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 22px;
-  padding: 55px;
+.glass{
+background:rgba(255,255,255,.06);
+backdrop-filter:blur(14px);
+border:1px solid rgba(255,255,255,.1);
+border-radius:22px;
+padding:55px
 }
 
-h1 {
-  font-size: 4.8rem;
-  margin-bottom: 30px;
+h1{font-size:4.8rem;margin-bottom:30px}
+h2{font-size:3rem;margin-bottom:25px}
+p{font-size:1.35rem;line-height:1.9;opacity:.9}
+
+.type{font-size:1.6rem;opacity:.85}
+.scroll{margin-top:70px;opacity:.6}
+
+.fade{opacity:0;transform:translateY(60px);transition:all 1.3s ease}
+.fade.show{opacity:1;transform:translateY(0)}
+
+.chart-box{max-width:900px;margin-top:40px}
+.impact{background:black;text-align:center}
+
+/* MINI MAPPA */
+#miniMap{position:relative;width:100%;max-width:900px;height:400px;margin-top:50px;background:#020305;border-radius:20px;overflow:hidden}
+.country{position:absolute;border-radius:50%;opacity:0.7}
+
+/* NUMERI ESPLOSIVI */
+.number-explode{
+  font-size:4rem;
+  font-weight:700;
+  text-align:center;
+  margin:60px 0;
+  color:#ff3b3b;
+  transform:scale(0);
+  opacity:0;
+  transition:all 0.6s ease-out;
 }
 
-h2 {
-  font-size: 3rem;
-  margin-bottom: 25px;
-}
-
-p {
-  font-size: 1.35rem;
-  line-height: 1.9;
-  opacity: 0.9;
-}
-
-.type {
-  font-size: 1.6rem;
-  opacity: 0.85;
-}
-
-.scroll {
-  margin-top: 70px;
-  opacity: 0.6;
-}
-
-.fade {
-  opacity: 0;
-  transform: translateY(60px);
-  transition: all 1.3s ease;
-}
-
-.fade.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.chart-box {
-  max-width: 900px;
-  margin-top: 50px;
-}
-
-/* IMPACT */
-.impact {
-  background: black;
-  text-align: center;
-}
-
-/* FOOTER */
-footer {
-  padding: 40px;
-  text-align: center;
-  background: #010305;
-  opacity: 0.6;
-}
+/* ARTICO ITALIA */
+.compare-section{display:flex;flex-wrap:wrap;gap:40px;justify-content:center;margin-top:60px}
+.compare-box{flex:1;min-width:300px;background:rgba(255,255,255,0.06);backdrop-filter:blur(12px);border-radius:20px;padding:30px;text-align:center}
+.compare-box h3{margin-bottom:20px;color:#ff8f3b}
+.compare-box p{font-size:1.3rem;opacity:0.9}
 
 /* SLIDE PROF */
-#teacherSlide {
-  display: none;
-  background: #020202;
-  border-top: 3px solid #ff3b3b;
-}
+#teacherSlide{display:none;background:#020202;border-top:3px solid #ff3b3b}
 
-/* CURSOR GLOW */
-#cursorGlow {
-  position: fixed;
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  pointer-events: none;
-  background: rgba(255,59,59,0.25);
-  filter: blur(14px);
-  transform: translate(-50%, -50%);
-  z-index: 999;
+/* CURSOR */
+#cursorGlow{
+position:fixed;width:25px;height:25px;border-radius:50%;
+pointer-events:none;background:rgba(255,59,59,.25);
+filter:blur(14px);transform:translate(-50%,-50%);z-index:999
 }
 </style>
 </head>
@@ -161,43 +92,81 @@ footer {
   </div>
 </section>
 
-<!-- GEOGRAFIA -->
+<!-- CONTESTO -->
 <section>
   <div class="fade glass">
     <h2>Un fenomeno geografico globale</h2>
     <p>
-      Il riscaldamento globale è un fenomeno geografico perché
-      modifica territori, climi ed ecosistemi.
-      Ridisegna il pianeta in modo diseguale,
-      cambiando il rapporto tra uomo e ambiente.
+      Il riscaldamento globale modifica climi, territori ed ecosistemi.
+      La geografia studia proprio questi cambiamenti
+      e il loro impatto sulle società umane.
     </p>
   </div>
 </section>
 
-<section>
-  <div class="fade glass">
-    <h2>I climi stanno cambiando</h2>
-    <p>
-      I ghiacciai si ritirano,
-      i deserti avanzano,
-      il livello dei mari cresce.
-      Le carte geografiche climatiche
-      non sono più statiche.
-    </p>
-  </div>
-</section>
-
-<!-- GRAFICO -->
+<!-- GRAFICI -->
 <section>
   <div class="fade glass">
     <h2>Temperatura media globale</h2>
-    <p>
-      I dati climatici mostrano
-      un aumento rapido e continuo
-      della temperatura terrestre.
-    </p>
-    <div class="chart-box">
-      <canvas id="climateChart"></canvas>
+    <div class="chart-box"><canvas id="chartTemp"></canvas></div>
+  </div>
+</section>
+
+<section>
+  <div class="fade glass">
+    <h2>Concentrazione di CO₂</h2>
+    <div class="chart-box"><canvas id="chartCO2"></canvas></div>
+  </div>
+</section>
+
+<section>
+  <div class="fade glass">
+    <h2>Innalzamento del livello dei mari</h2>
+    <div class="chart-box"><canvas id="chartSea"></canvas></div>
+  </div>
+</section>
+
+<section>
+  <div class="fade glass">
+    <h2>Riduzione dei ghiacci artici</h2>
+    <div class="chart-box"><canvas id="chartIce"></canvas></div>
+  </div>
+</section>
+
+<!-- NUMERI ESPLOSIVI -->
+<section>
+  <div class="fade number-explode" id="co2Number">415 ppm</div>
+  <div class="fade number-explode" id="tempNumber">+1.2°C dal 1900</div>
+</section>
+
+<!-- MINI MAPPA -->
+<section>
+  <div class="fade glass">
+    <h2>Zone più colpite dal riscaldamento</h2>
+    <div id="miniMap">
+      <div class="country" style="top:40px;left:300px;width:40px;height:40px;background:#ff3b3b;"></div>
+      <div class="country" style="top:120px;left:600px;width:30px;height:30px;background:#ff8f3b;"></div>
+      <div class="country" style="top:200px;left:450px;width:50px;height:50px;background:#ff3b3b;"></div>
+      <!-- aggiungi altri punti se vuoi -->
+    </div>
+  </div>
+</section>
+
+<!-- ARTICO ITALIA -->
+<section>
+  <div class="fade glass">
+    <h2>Artico vs Italia</h2>
+    <div class="compare-section">
+      <div class="compare-box">
+        <h3>Artico</h3>
+        <p>Ghiaccio marino: -45% negli ultimi 40 anni</p>
+        <p>Temperatura media: +3°C dal 1980</p>
+      </div>
+      <div class="compare-box">
+        <h3>Italia</h3>
+        <p>Temperature estive +2°C dal 1980</p>
+        <p>Eventi estremi più frequenti</p>
+      </div>
     </div>
   </div>
 </section>
@@ -205,129 +174,91 @@ footer {
 <!-- IMPACT -->
 <section class="impact">
   <h2>La Terra si adatta.</h2>
-  <p style="font-size:1.8rem;margin-top:40px;">
-    Le società umane no.<br>
-    <strong>Ed è qui il problema.</strong>
+  <p style="font-size:1.8rem;margin-top:40px">
+    Le società umane no.<br><strong>Ed è qui il problema.</strong>
   </p>
-</section>
-
-<section>
-  <div class="fade glass">
-    <h2>Uomo e territorio</h2>
-    <p>
-      Migrazioni climatiche,
-      crisi delle risorse,
-      città vulnerabili.
-      La geografia studia
-      questo fragile equilibrio.
-    </p>
-  </div>
 </section>
 
 <!-- SLIDE PROF -->
 <section id="teacherSlide">
   <h2>Nota per la valutazione – Geografia</h2>
   <p>
-    Il progetto analizza il riscaldamento globale
-    come fenomeno geografico globale,
-    mettendo in relazione clima,
-    territorio e attività umane.
-  </p>
-  <p>
-    La forma digitale rappresenta
-    un fenomeno continuo e dinamico.
-  </p>
-  <p>
-    Competenze: analisi territoriale,
-    interpretazione di dati climatici,
-    comunicazione geografica digitale.
+    I grafici mostrano come il cambiamento climatico
+    sia un fenomeno misurabile e globale,
+    con effetti diretti sui territori.
   </p>
 </section>
 
-<footer>
-  Progetto di Geografia • Una riflessione sul presente
-</footer>
+<footer>Progetto di Geografia • Dati, territorio, futuro</footer>
 
 <script>
-/* TYPEWRITER */
-const text = "È il presente che stiamo ignorando.";
-let i = 0;
-function typeWriter() {
-  if (i < text.length) {
-    document.getElementById("typeText").innerHTML += text.charAt(i);
-    i++;
-    setTimeout(typeWriter, 45);
-  }
-}
-window.onload = typeWriter;
+/* TYPE */
+const text="È il presente che stiamo ignorando.";
+let i=0;
+(function type(){if(i<text.length){typeText.innerHTML+=text[i++];setTimeout(type,45)}})();
 
-/* PARALLASSE */
-window.addEventListener("scroll", () => {
-  document.querySelector(".hero").style.backgroundPositionY =
-    window.scrollY * 0.4 + "px";
-
-  const progress =
-    (window.scrollY /
-      (document.body.scrollHeight - window.innerHeight)) *
-    100;
-  document.getElementById("accentLine").style.width = progress + "%";
+/* PARALLASSE + LINE */
+window.addEventListener("scroll",()=>{
+  document.querySelector(".hero").style.backgroundPositionY=scrollY*.4+"px";
+  accentLine.style.width=(scrollY/(document.body.scrollHeight-innerHeight))*100+"%";
 });
 
 /* FADE */
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) entry.target.classList.add("show");
-  });
-});
-document.querySelectorAll(".fade").forEach(el => observer.observe(el));
+const obs=new IntersectionObserver(e=>e.forEach(x=>x.isIntersecting&&x.target.classList.add("show")));
+document.querySelectorAll(".fade").forEach(el=>obs.observe(el));
 
-/* CHART */
-let chartDone = false;
-const chartObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting && !chartDone) {
-      chartDone = true;
-      new Chart(document.getElementById('climateChart'), {
-        type: 'line',
-        data: {
-          labels: ['1900','1950','1980','2000','2020'],
-          datasets: [{
-            label: 'Temperatura Media (°C)',
-            data: [13.7,13.8,14.1,14.4,14.9],
-            borderColor: '#ff3b3b',
-            backgroundColor: 'rgba(255,59,59,0.15)',
-            tension: 0.45,
-            fill: true
-          }]
-        },
-        options: {
-          animation: { duration: 4000 },
-          plugins: { legend: { labels: { color: 'white' } } },
-          scales: {
-            x: { ticks: { color: 'white' } },
-            y: { ticks: { color: 'white' } }
-          }
-        }
-      });
+/* CHART CREATOR */
+function createChart(id,label,data,color){
+  new Chart(document.getElementById(id),{
+    type:'line',
+    data:{labels:['1900','1950','1980','2000','2020'],
+    datasets:[{label,data,borderColor:color,backgroundColor:color+'33',tension:.45,fill:true}]},
+    options:{animation:{duration:3500},plugins:{legend:{labels:{color:'white'}}},scales:{x:{ticks:{color:'white'}},y:{ticks:{color:'white'}}}}
+  })
+}
+
+/* OBSERVE CHARTS */
+const charts={
+  chartTemp:()=>createChart('chartTemp','Temperatura °C',[13.7,13.8,14.1,14.4,14.9],'#ff3b3b'),
+  chartCO2:()=>createChart('chartCO2','CO₂ ppm',[296,311,338,369,415],'#3bffb6'),
+  chartSea:()=>createChart('chartSea','Livello marino cm',[0,2,6,10,20],'#3ba9ff'),
+  chartIce:()=>createChart('chartIce','Estensione ghiacci %',[100,92,78,65,55],'#cfdfff')
+};
+
+const used={};
+const chartObs=new IntersectionObserver(e=>{
+  e.forEach(x=>{
+    if(x.isIntersecting&&!used[x.target.id]){
+      used[x.target.id]=true;
+      charts[x.target.id]();
     }
-  });
+  })
 });
-chartObserver.observe(document.getElementById("climateChart"));
+Object.keys(charts).forEach(id=>chartObs.observe(document.getElementById(id)));
+
+/* NUMERI ESPLOSIVI */
+const numObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.style.transform="scale(1)";
+      e.target.style.opacity="1";
+    }
+  })
+});
+document.querySelectorAll('.number-explode').forEach(el=>numObs.observe(el));
 
 /* SLIDE PROF */
-document.addEventListener("keydown", e => {
-  if (e.key === "t") {
-    const slide = document.getElementById("teacherSlide");
-    slide.style.display = slide.style.display === "none" ? "block" : "none";
-    slide.scrollIntoView({ behavior: "smooth" });
+document.addEventListener("keydown",e=>{
+  if(e.key==="t"){
+    teacherSlide.style.display=teacherSlide.style.display==="none"?"block":"none";
+    teacherSlide.scrollIntoView({behavior:"smooth"});
   }
 });
 
 /* CURSOR */
-document.addEventListener("mousemove", e => {
-  const g = document.getElementById("cursorGlow");
-  g.style.left = e.clientX + "px";
-  g.style.top = e.clientY + "px";
+document.addEventListener("mousemove",e=>{
+  cursorGlow.style.left=e.clientX+"px";
+  cursorGlow.style.top=e.clientY+"px";
 });
 </script>
 
