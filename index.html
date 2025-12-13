@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<title>Non è il Futuro</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background: #03070a;
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+section {
+  min-height: 100vh;
+  padding: 90px 12%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero {
+  background: url("https://images.unsplash.com/photo-1501785888041-af3ef285b470") center/cover no-repeat;
+  position: relative;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.85), #03070a);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+}
+
+h1 {
+  font-size: 4.8rem;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+h2 {
+  font-size: 3rem;
+  margin-bottom: 25px;
+}
+
+p {
+  font-size: 1.35rem;
+  line-height: 1.9;
+  opacity: 0.9;
+}
+
+.type {
+  font-size: 1.6rem;
+  opacity: 0.85;
+}
+
+.scroll {
+  margin-top: 70px;
+  opacity: 0.6;
+  font-size: 0.9rem;
+}
+
+.fade {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: all 1.3s ease;
+}
+
+.fade.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.chart-box {
+  max-width: 900px;
+  margin-top: 50px;
+}
+
+.impact {
+  background: black;
+  text-align: center;
+}
+
+.impact h2 {
+  font-size: 3.6rem;
+}
+
+.impact p {
+  font-size: 1.8rem;
+  margin-top: 40px;
+}
+
+footer {
+  padding: 40px;
+  text-align: center;
+  background: #010305;
+  opacity: 0.6;
+  font-size: 0.85rem;
+}
+
+/* SLIDE PROF */
+#teacherSlide {
+  display: none;
+  background: #020202;
+  border-top: 3px solid #ff3b3b;
+}
+</style>
+</head>
+
+<body>
+
+<!-- INTRO -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>Non è il futuro.</h1>
+    <p class="type" id="typeText"></p>
+    <div class="scroll">↓ scorri lentamente</div>
+  </div>
+</section>
+
+<!-- GEOGRAFIA -->
+<section>
+  <div class="fade">
+    <h2>Un fenomeno geografico globale</h2>
+    <p>
+      Il riscaldamento globale è un fenomeno geografico perché
+      modifica il territorio, i climi, gli ecosistemi e il modo
+      in cui l’uomo vive lo spazio terrestre.
+      Non colpisce ovunque allo stesso modo,
+      ma ridisegna il pianeta in modo diseguale.
+    </p>
+  </div>
+</section>
+
+<!-- CLIMI -->
+<section>
+  <div class="fade">
+    <h2>I climi stanno cambiando</h2>
+    <p>
+      Zone un tempo temperate diventano aride,
+      i ghiacciai si ritirano,
+      il livello dei mari aumenta.
+      Le carte climatiche che studiamo oggi
+      non saranno più valide domani.
+    </p>
+  </div>
+</section>
+
+<!-- GRAFICO -->
+<section>
+  <div class="fade">
+    <h2>La temperatura media globale</h2>
+    <p>
+      La geografia utilizza i dati per comprendere
+      l’evoluzione del pianeta.
+      Questo grafico mostra un aumento rapido e continuo
+      della temperatura media terrestre.
+    </p>
+
+    <div class="chart-box">
+      <canvas id="climateChart"></canvas>
+    </div>
+  </div>
+</section>
+
+<!-- IMPACT -->
+<section class="impact">
+  <h2>La Terra si adatta.</h2>
+  <p>
+    Le società umane no.<br>
+    <strong>Ed è qui il problema.</strong>
+  </p>
+</section>
+
+<!-- UOMO E TERRITORIO -->
+<section>
+  <div class="fade">
+    <h2>Uomo e territorio</h2>
+    <p>
+      Il cambiamento climatico influisce su migrazioni,
+      risorse, agricoltura e città.
+      La geografia studia proprio questo rapporto:
+      l’equilibrio fragile tra l’uomo e l’ambiente.
+    </p>
+  </div>
+</section>
+
+<!-- SLIDE INVISIBILE PROF -->
+<section id="teacherSlide">
+  <h2>Nota per la valutazione (Geografia)</h2>
+  <p>
+    Questo progetto affronta il riscaldamento globale
+    come fenomeno geografico globale,
+    analizzando il rapporto tra clima, territorio
+    e attività umane.
+  </p>
+  <p>
+    La scelta del sito web sostituisce la presentazione
+    tradizionale per rappresentare un fenomeno continuo,
+    dinamico e in costante evoluzione.
+  </p>
+  <p>
+    Competenze utilizzate:
+    analisi territoriale,
+    interpretazione di dati climatici,
+    relazione uomo-ambiente,
+    comunicazione geografica digitale.
+  </p>
+</section>
+
+<footer>
+  Progetto di Geografia • Una riflessione sul presente
+</footer>
+
+<script>
+/* TYPEWRITER */
+const text = "È il presente che stiamo ignorando.";
+let i = 0;
+const speed = 45;
+const target = document.getElementById("typeText");
+
+function typeWriter() {
+  if (i < text.length) {
+    target.innerHTML += text.charAt(i);
+    i++;
+    setTimeout(typeWriter, speed);
+  }
+}
+window.onload = typeWriter;
+
+/* PARALLASSE */
+window.addEventListener("scroll", () => {
+  document.querySelector(".hero").style.backgroundPositionY =
+    window.scrollY * 0.4 + "px";
+});
+
+/* FADE */
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+    }
+  });
+});
+document.querySelectorAll(".fade").forEach(el => observer.observe(el));
+
+/* CHART */
+let chartDone = false;
+const chartObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting && !chartDone) {
+      chartDone = true;
+      new Chart(document.getElementById('climateChart'), {
+        type: 'line',
+        data: {
+          labels: ['1900', '1950', '1980', '2000', '2020'],
+          datasets: [{
+            label: 'Temperatura Media Globale (°C)',
+            data: [13.7, 13.8, 14.1, 14.4, 14.9],
+            borderColor: '#ff3b3b',
+            backgroundColor: 'rgba(255,59,59,0.15)',
+            tension: 0.45,
+            fill: true
+          }]
+        },
+        options: {
+          animation: { duration: 4000 },
+          scales: {
+            x: { ticks: { color: 'white' } },
+            y: { ticks: { color: 'white' } }
+          },
+          plugins: {
+            legend: { labels: { color: 'white' } }
+          }
+        }
+      });
+    }
+  });
+});
+chartObserver.observe(document.getElementById("climateChart"));
+
+/* SLIDE PROF - t */
+document.addEventListener("keydown", (e) => {
+  if (e.key === "t") {
+    const slide = document.getElementById("teacherSlide");
+    slide.style.display =
+      slide.style.display === "none" ? "block" : "none";
+    slide.scrollIntoView({ behavior: "smooth" });
+  }
+});
+</script>
+
+</body>
+</html>
